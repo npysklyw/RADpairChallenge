@@ -1,0 +1,7 @@
+FROM node:20-alpine
+WORKDIR /rad-diff-checker/
+COPY public/ /rad-diff-checker/public
+COPY src/ /rad-diff-checker/src
+COPY package.json /rad-diff-checker/
+RUN npm install
+CMD ["npm", "start"]

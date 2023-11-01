@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+}
+
+.container.space-around {
+  justify-content: space-around;
+}
+
+.container.space-between {
+  justify-content: space-between;
+}
