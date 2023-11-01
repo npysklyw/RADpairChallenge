@@ -1,0 +1,1 @@
+To run the Flask server locally, run `flask run`.

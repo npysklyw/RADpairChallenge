@@ -2,12 +2,15 @@ import axios from 'axios';
 import './App.css';
 import 'react-diff-view/style/index.css';
 import { useState } from 'react';
+
+//MaterialUI Components
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 //Two packages used to help show difference in reports
 import { diffLines, formatLines } from 'unidiff';
 import { parseDiff, Hunk, Diff } from 'react-diff-view';
-import Typography from '@mui/material/Typography';
+
 
 function App() {
 
@@ -21,8 +24,11 @@ function App() {
   const getData = () => {
 
     //Axios request to get data
+    //Add in templateID in case we were to use this data
     axios.get('http://127.0.0.1:5000/?template_id=' + templateID)
       .then(function (response) {
+
+        //Set API state to server report
         setApiReport(response.data)
 
       })
@@ -49,13 +55,6 @@ function App() {
             Report {templateID} Difference
           </Typography>
         </div>
-        {/* <div style={{ padding: 10 }}>
-          <Typography variant="h4" component="h2" style={{ color: "white" }}>
-            Legend: <text style={{ color: "#FADDE0" }}>EDIT</text> <text style={{ color: "#d6fedb" }}>ADDITION</text>
-          </Typography>
-
-        </div> */}
-
 
         <div class="container space-around">
           <div style={{ padding: 10 }}>    <Typography variant="h5" component="h5" style={{ color: "white" }}>
@@ -80,20 +79,20 @@ function App() {
       </div >)
   }
 
-  //
+  //Simple outline for user input
   return (
     <div className="App">
-      <Typography variant="h3" component="h2" style={{ color: "white" }}>
+      <Typography variant="h3" component="h2" color="white">
         RadDiffChecker
       </Typography>
 
-      <Typography variant="p" component="p" style={{ color: "white" }}>
+      <Typography color="white" variant="p" component="p" >
         Enter a template ID:
       </Typography>
       <div style={{ padding: 10, textAlign: 'center', }}>
         <input placeholder='Template ID' onChange={(e) => setTemplateID(e.target.value)} value={templateID} />
       </div>
-      <Typography variant="p" component="p" style={{ color: "white" }}>
+      <Typography  color="white" variant="p" component="p" >
         Enter your report:
       </Typography>
       <div style={{ padding: 10, textAlign: 'center', whiteSpace: "normal" }}>

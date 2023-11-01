@@ -2,14 +2,16 @@ from flask import Flask, request
 from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 
+#Required
 CORS(app)
 
+#One endpoint for this project
 @app.route('/')
 def templateText():
-    #Receive templateID from user
+    #Receive templateID from user, we could use this potentially
     templateID = request.args.get('template_id')
 
-    return """EXAM:
+    report = """EXAM:
 CT [_laterality_] [Generic Bone], [without or with] IV contrast
 
 CLINICAL HISTORY:
@@ -38,3 +40,6 @@ The soft tissues are unremarkable.
 IMPRESSION:
 
 1. No acute osseous abnormality."""
+
+    #Return hardcoded report value
+    return report
