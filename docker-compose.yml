@@ -3,13 +3,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.api
-    image: react-flask-app-api
+    image: radpair-flask
     ports:
     - "5000:5000"
   client:
     build:
       context: .
-      dockerfile: dockerfile
-    image: react-example-image 
+      dockerfile: Dockerfile.frontend
+    image: radpair-react 
     ports:
       - "3000:3000"
